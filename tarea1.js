@@ -77,3 +77,37 @@ if (operacion === "suma") {
 } else {
   console.log(`Por favor, ingrese una opción válida`);
 }
+
+/* Ejercicio de clase
+Un comerciante hace descuentos a sus clientes de la siguiente forma:
+- Si ha comprado menos de 100 dolares no hay descuento
+- Si la compra está entre 100 y 300 dolares le descuenta un 5%
+- Si la compra está por encima de 300 hasta 500 dolares le descuenta un 10%
+- Si la compra supera los 500 dolares le descuenta un 15%
+*/
+let pesos = prompt(
+  "Por favor, ingrese el monto total en pesos que desea cambiar por dólares",
+);
+
+pesos = parseFloat(pesos);
+
+let dolares = pesos / 1400;
+let descuento5 = (pesos * 5) / 100;
+let descuento10 = (pesos * 10) / 100;
+let descuento15 = (pesos * 15) / 100;
+
+if (dolares < 100) {
+  console.log("Gracias por confiar en nosotros!");
+} else if (dolares >= 100 && dolares <= 300) {
+  console.log(
+    `Por tu compra de USD${dolares}, te haremos un descuento del 5% en pesos! Por lo que tu nuevo total en pesos sería de $${pesos - descuento5}. Gracias por confiar en nosotros!`,
+  );
+} else if (dolares > 300 && dolares <= 500) {
+  console.log(
+    `Por tu compra de USD${dolares}, te haremos un descuento del 10% en pesos! Por lo que tu nuevo total en pesos sería de $${pesos - descuento10}. Gracias por confiar en nosotros!`,
+  );
+} else {
+  console.log(
+    `Felicidades! Por tu compra de USD${dolares}, te haremos un descuento del 15% en pesos! Por lo que tu nuevo total en pesos sería de $${pesos - descuento15}. Gracias por confiar en nosotros!`,
+  );
+}
