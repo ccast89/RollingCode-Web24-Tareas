@@ -29,7 +29,9 @@ console.log(
 if (numeroElegido == numeroRandom) {
   alert("Felicidades!!!! Adivinaste el número 🎉");
 } else {
-  alert("Lo siento 😣, no acertaste, suerte para la próxima🍀");
+  alert(
+    `Lo siento 😣, no acertaste.\nEl número correcto es: ${numeroRandom}\nSuerte para la próxima🍀`,
+  );
 }
 
 /* Juguemos con Switch
