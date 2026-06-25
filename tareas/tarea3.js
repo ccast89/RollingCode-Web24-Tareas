@@ -26,6 +26,29 @@ Salida esperada:
 ...
 5 x 10 = 50 */
 
+/*ALGORITMO
+- Dato de entrada: El número que ingrese el usuario
+- Proceso: El programa debe mutiplicar el numero ingresado hasta llegar a numero x 10
+-Salida: El programa mostrará la tabla completa
+*/
+
+let tabla = Number(
+  prompt(
+    "Hola 🤗!! Que gusto tenerte aquí!\nHoy vamos a aprender las tablas de multiplicar!\nIngresá el número de la tabla que quieras aprender 🧮",
+  ),
+);
+
+if (tabla) {
+  console.log(
+    `La tabla que elegiste aprender hoy es la tabla del ${tabla}!\n A practicar📝!`,
+  );
+  for (let i = 1; i <= 10; i++) {
+    console.log(`${tabla} x ${i} = ${tabla * i}`);
+  }
+} else {
+  alert("Por favor, ingresá un número");
+}
+
 /* 3. Suma de los primeros 10 números 
 Utiliza un ciclo for para sumar los números del 1 al 10 y mostrar el resultado final.
 Salida esperada:
