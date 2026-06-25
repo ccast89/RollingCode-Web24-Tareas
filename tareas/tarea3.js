@@ -46,7 +46,7 @@ if (tabla) {
     console.log(`${tabla} x ${i} = ${tabla * i}`);
   }
 } else {
-  alert("Por favor, ingresá un número");
+  alert("Por favor, ingresá un número🔢.");
 }
 
 /* 3. Suma de los primeros 10 números 
@@ -54,6 +54,12 @@ Utiliza un ciclo for para sumar los números del 1 al 10 y mostrar el resultado 
 Salida esperada:
 La suma total es: */
 
+let suma = 0;
+
+for (let i = 1; i <= 10; i++) {
+  suma = suma + i;
+}
+console.log(`La suma total es de ${suma} `);
 /* Ejercicios con while
 1. Contador del 1 al 10
 Crea un programa que muestre por consola los números del 1 al 10 utilizando un ciclo while.
