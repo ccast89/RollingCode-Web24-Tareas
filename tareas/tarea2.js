@@ -22,9 +22,6 @@ let numeroRandom = Math.ceil(Math.random() * 10);
 let numeroElegido = prompt("Ingresá un número");
 
 numeroElegido = Number(numeroElegido);
-console.log(
-  numeroRandom,
-); /*Esto lo puse sólo para yo saber que número había generado el Random*/
 
 if (numeroElegido == numeroRandom) {
   alert("Felicidades!!!! Adivinaste el número 🎉");
