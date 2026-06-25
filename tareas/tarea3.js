@@ -12,6 +12,10 @@ Crea un programa que muestre por consola los números del 1 al 10 utilizando un 
 9
 10 */
 
+for (let i = 1; i <= 10; i++) {
+  console.log(`${i}`);
+}
+
 /* 2. Tabla de multiplicar de un número. 
 Solicita al usuario un número y muestra su tabla de multiplicar del 1 al 10 utilizando un ciclo for. Ejemplo:
 Ingrese un número: 5
