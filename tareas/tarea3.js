@@ -11,6 +11,7 @@ Crea un programa que muestre por consola los números del 1 al 10 utilizando un 
 8
 9
 10 */
+console.log("EJERCICIO Nº 1 (FOR)- MOSTRAR NÚMEROS DEL 1 AL 10");
 
 for (let i = 1; i <= 10; i++) {
   console.log(`${i}`);
@@ -31,6 +32,7 @@ Salida esperada:
 - Proceso: El programa debe mutiplicar el numero ingresado hasta llegar a numero x 10
 -Salida: El programa mostrará la tabla completa
 */
+console.log("EJERCICIO Nº 2 (FOR)- TABLA DE MULTIPLICAR DE UN NÚMERO");
 
 let tabla = Number(
   prompt(
@@ -53,6 +55,7 @@ if (tabla) {
 Utiliza un ciclo for para sumar los números del 1 al 10 y mostrar el resultado final.
 Salida esperada:
 La suma total es: */
+console.log("EJERCICIO Nº 3 (FOR)- SUMA DE LOS PRIMEROS 10 NÚMEROS");
 
 let suma = 0;
 
@@ -76,6 +79,7 @@ Salida esperada:
 8
 9
 10 */
+console.log("EJERCICIO Nº 1 (WHILE)- CONTADOR DEL 1 AL 10");
 
 let contador = 1;
 
@@ -83,6 +87,7 @@ while (contador <= 10) {
   console.log(contador);
   contador++;
 }
+
 /* 2. Cuenta regresiva
 Utiliza un ciclo while para mostrar una cuenta regresiva desde 10 hasta 1.
 Salida esperada:
@@ -97,7 +102,15 @@ Salida esperada:
 2
 1
 ¡Despegue! 🚀 */
+console.log("EJERCICIO Nº 2 (WHILE)- CUENTA REGRESIVA");
 
+let cuentaRegresiva = 10;
+
+while (cuentaRegresiva >= 1) {
+  console.log(cuentaRegresiva);
+  cuentaRegresiva--;
+}
+console.log("¡Despegue!🚀");
 /* 3. Mostrar números pares hasta 20
 Utiliza un ciclo while para mostrar todos los números pares entre 2 y 20.
 Salida esperada:
@@ -111,3 +124,4 @@ Salida esperada:
 16
 18
 20 */
+console.log("EJERCICIO Nº 3 (WHILE)- MOSTRAR NÚMEROS PARES HASTA 20");
