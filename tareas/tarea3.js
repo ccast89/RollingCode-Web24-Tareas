@@ -111,6 +111,7 @@ while (cuentaRegresiva >= 1) {
   cuentaRegresiva--;
 }
 console.log("¡Despegue!🚀");
+
 /* 3. Mostrar números pares hasta 20
 Utiliza un ciclo while para mostrar todos los números pares entre 2 y 20.
 Salida esperada:
@@ -125,3 +126,10 @@ Salida esperada:
 18
 20 */
 console.log("EJERCICIO Nº 3 (WHILE)- MOSTRAR NÚMEROS PARES HASTA 20");
+
+let numPar = 2;
+
+while (numPar <= 20) {
+  console.log(numPar);
+  numPar = numPar + 2;
+}
