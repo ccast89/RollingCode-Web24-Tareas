@@ -51,6 +51,17 @@ Consigna: Utiliza dos bucles for (uno dentro de otro) para imprimir un triángul
 *****
 Desafío lógico: El bucle externo controla las filas y el interno controla cuántos asteriscos imprimir en cada fila. 
 Objetivo: Dominar la complejidad de los bucles anidados, fundamental para entender estructuras de datos complejas en el futuro.  */
+
+let altura = 5;
+
+for (let i = 1; i <= altura; i++) {
+  let fila = "";
+  for (let contadorAsterisco = 1; contadorAsterisco <= i; contadorAsterisco++) {
+    fila = fila + "*";
+  }
+  console.log(fila);
+}
+
 console.log("EJERCICIO Nº 2 (TAREA 4)- EL TRIÁNGULO DE ASTERISCOS");
 /* 3. El Simulador de "Token de Seguridad" (Ciclo while)
 Contexto: Hoy en día, los sistemas de seguridad nos piden ingresar un código que caduca en segundos o nos limita la cantidad de intentos.
