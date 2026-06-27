@@ -60,6 +60,8 @@ for (let i = 1; i <= 10; i++) {
   suma = suma + i;
 }
 console.log(`La suma total es de ${suma} `);
+
+console.log("EJERCICIOS CON WHILE");
 /* Ejercicios con while
 1. Contador del 1 al 10
 Crea un programa que muestre por consola los números del 1 al 10 utilizando un ciclo while.
@@ -75,6 +77,12 @@ Salida esperada:
 9
 10 */
 
+let contador = 1;
+
+while (contador <= 10) {
+  console.log(contador);
+  contador++;
+}
 /* 2. Cuenta regresiva
 Utiliza un ciclo while para mostrar una cuenta regresiva desde 10 hasta 1.
 Salida esperada:
