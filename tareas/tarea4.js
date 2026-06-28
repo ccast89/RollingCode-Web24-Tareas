@@ -51,6 +51,7 @@ Consigna: Utiliza dos bucles for (uno dentro de otro) para imprimir un triángul
 *****
 Desafío lógico: El bucle externo controla las filas y el interno controla cuántos asteriscos imprimir en cada fila. 
 Objetivo: Dominar la complejidad de los bucles anidados, fundamental para entender estructuras de datos complejas en el futuro.  */
+console.log("EJERCICIO Nº 2 (TAREA 4)- EL TRIÁNGULO DE ASTERISCOS");
 
 let altura = 5;
 
@@ -62,12 +63,39 @@ for (let i = 1; i <= altura; i++) {
   console.log(fila);
 }
 
-console.log("EJERCICIO Nº 2 (TAREA 4)- EL TRIÁNGULO DE ASTERISCOS");
 /* 3. El Simulador de "Token de Seguridad" (Ciclo while)
 Contexto: Hoy en día, los sistemas de seguridad nos piden ingresar un código que caduca en segundos o nos limita la cantidad de intentos.
 Consigna: Crea un programa que simule un sistema de autenticación de 2 pasos. El sistema tiene un código fijo (ej: 5555). El usuario tiene un máximo de 3 intentos para ingresarlo correctamente.
 Desafío lógico: Usa un contador que aumente con cada intento fallido y un while que verifique dos condiciones: que el código sea incorrecto y que los intentos sean menores a 3. */
+
 console.log("EJERCICIO Nº 3 (TAREA 4)- EL SIMULADOR DE TOKEN DE SEGURIDAD");
+
+let token = "1234";
+let ingresoToken = "";
+let intentos = 0;
+let tokenCorrecto = false;
+
+while (intentos <= 2 && !tokenCorrecto) {
+  ingresoToken = prompt(
+    `🔑Ingresá el Token para poder realizar la transferencia\nRecordá que sólo tenés ${3 - intentos} intentos👀`,
+  );
+
+  if (ingresoToken === token.trim()) {
+    tokenCorrecto = true;
+    intentos = 3;
+  } else {
+    intentos = intentos + 1;
+  }
+}
+
+if (tokenCorrecto) {
+  alert("Transferencia realizada 💸");
+} else {
+  alert(
+    "🔒Superaste la cantidad máxima de intentos permitidos. Por razones de seguridad, tu clave/token ha sido bloqueado. Para desbloquearlo, acercate a un cajero automático o comunícate con atención al cliente",
+  );
+}
+
 /* 4. Gestor de "Horas de Estudio" (Ciclo for)
 Contexto: Los estudiantes suelen organizar su semana para cumplir con el curso Fullstack.
 Consigna: Crea un programa donde el usuario ingrese cuántas horas dedicará a estudiar cada día de la semana (7 días). El programa debe usar un ciclo for para solicitar el dato 7 veces, ir sumando las horas en un acumulador y, al final, mostrar el promedio de horas diarias dedicadas al estudio.
