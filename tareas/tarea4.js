@@ -102,6 +102,43 @@ Consigna: Crea un programa donde el usuario ingrese cuántas horas dedicará a e
 Desafío lógico: ¿Qué pasa si el usuario ingresa un valor negativo? El programa debe ignorar ese dato y pedir que ingrese un número mayor a 0. */
 console.log("EJERCICIO Nº 4 (TAREA 4)- HORAS DE ESTUDIO");
 
+let totalHoras = 0;
+
+alert(
+  "👋🏼 Hola! ⌚ Binevend@ a tu contador de horas de estudio!\nVamos a contar cuantas horas estudiaste en total durante la semana 📝",
+);
+
+for (let i = 1; i <= 7; i++) {
+  let horasIngresadas = Number(
+    prompt(
+      `🤔¿Cuántas horas estudiaste hoy?\nIngresá las horas que estudiaste (pero de verdad 😉)`,
+    ),
+  );
+  if (horasIngresadas < 0 || isNaN(horasIngresadas)) {
+    alert(
+      "❌❌❌ Por favor, ingresá un número mayor a 0, estoy seguro que si estudiaste",
+    );
+    i--; /*Este -- es para que se vuelva a repetir el día*/
+  } else {
+    totalHoras = totalHoras + horasIngresadas;
+  }
+  alert(
+    `En el día ${i}, estudiaste ${horasIngresadas} horas\nEl total acumulado de horas es de ${totalHoras} horas`,
+  );
+}
+
+let promedioHoras = totalHoras / 7;
+
+if (promedioHoras > 2) {
+  alert(
+    `🎉🎉🎉Felicidades!!! Tu total de horas de estudio acumuladas es de ${totalHoras} horas😁\nEso te da un promedio de ${promedioHoras.toFixed(2)} horas por día!!\nSeguí así y pronto alcazaras tu meta!!🤩`,
+  );
+} else {
+  alert(
+    `Tu total de horas de estudio acumuladas es de ${totalHoras.toFixed(2)}\nEso te da un promedio de ${promedioHoras} horas por día!😣\nDeberías dedicarte un poco más asi podes avanzar!🙃`,
+  );
+}
+
 /* 5. Simulador de "Carrito de Descuentos Progresivos" (Ciclo while)
 Contexto: Muchas tiendas online aplican descuentos que dependen de la cantidad de productos en el carrito.
 Consigna: El usuario comienza con un producto. El programa debe preguntar el precio de cada producto y sumarlo. El ciclo while continuará pidiendo productos mientras el usuario escriba "si" para agregar otro. Si el total supera los $5000, el sistema debe imprimir: "¡Has obtenido un 10% de descuento!".
