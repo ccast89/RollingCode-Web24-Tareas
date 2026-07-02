@@ -101,9 +101,28 @@ Imagina que un robot tiene una batería inicial de 100%. Cada tarea que realiza 
 let bateria = 100;*/
 console.log("7. La Batería del Robot (while)");
 /* ALGORITMO
-ENTRADA: 
-PROCESO:
-SALIDA:  */
+ENTRADA: batería inicial
+PROCESO: crear una tarea con un consumo entre 5 y  20, restar ese consumo a la bateria inicial hasta que se agote la bataria
+SALIDA: mensaje con el número de tareas que realizó el robot */
+
+let bateria = 100;
+let tareas = 0;
+
+while (bateria > 0) {
+  let consumoAleatorio = Math.floor(Math.random() * (20 - 5)) + 5; //Esta fórmula la saqué de la documentacion de mdn, pero estaba dentro de una funcion: Math.random() * (max - min) + min
+  bateria -= consumoAleatorio;
+  tareas++;
+
+  console.log(
+    `🤖 El robot realizó su ${tareas}º, lo que consumió ${consumoAleatorio}% de batería\nBatería restante: ${bateria}%`,
+  );
+}
+
+alert(
+  `🤖El robot realizó un total de ${tareas} tareas, por lo que la batería se agotó!!🪫\n\nEs hora de recargarla🔋`,
+);
+console.log(`Total de tareas realizadas: ${tareas} tareas 😮‍💨`);
+
 console.log("-----------------------");
 
 /* 8. La Calculadora de Conversión (function)
@@ -136,5 +155,3 @@ console.log("10. El Calculador de Descuentos (function)");
 ENTRADA: 
 PROCESO:
 SALIDA:  */
-console.log("-----------------------");
-//10. El Calculador de Descuentos (funct
