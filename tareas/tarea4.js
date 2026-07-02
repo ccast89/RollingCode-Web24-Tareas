@@ -72,26 +72,29 @@ console.log("EJERCICIO Nº 3 (TAREA 4)- EL SIMULADOR DE TOKEN DE SEGURIDAD");
 
 let token = "1234";
 let ingresoToken = "";
-let intentos = 0;
+let intentos = 3;
 let tokenCorrecto = false;
 
-while (intentos <= 2 && !tokenCorrecto) {
+while (intentos > 0 && !tokenCorrecto) {
   ingresoToken = prompt(
-    `🔑Ingresá el Token para poder realizar la transferencia\nRecordá que sólo tenés ${3 - intentos} intentos👀`,
+    `🔑Ingresá el Token para poder realizar la transferencia\nRecordá que sólo tenés ${intentos} intentos👀`,
   );
 
   if (ingresoToken === token.trim()) {
     tokenCorrecto = true;
-    intentos = 3;
   } else {
-    intentos = intentos + 1;
+    intentos--;
   }
 }
 
 if (tokenCorrecto) {
   alert("Transferencia realizada 💸");
+  console.log("Transferencia realizada 💸");
 } else {
   alert(
+    "🔒Superaste la cantidad máxima de intentos permitidos. Por razones de seguridad, tu clave/token ha sido bloqueado. Para desbloquearlo, acercate a un cajero automático o comunícate con atención al cliente",
+  );
+  console.log(
     "🔒Superaste la cantidad máxima de intentos permitidos. Por razones de seguridad, tu clave/token ha sido bloqueado. Para desbloquearlo, acercate a un cajero automático o comunícate con atención al cliente",
   );
 }
@@ -105,7 +108,7 @@ console.log("EJERCICIO Nº 4 (TAREA 4)- HORAS DE ESTUDIO");
 let totalHoras = 0;
 
 alert(
-  "👋🏼 Hola! ⌚ Binevend@ a tu contador de horas de estudio!\nVamos a contar cuantas horas estudiaste en total durante la semana 📝",
+  "👋🏼 Hola! ⌚ Bienvend@ a tu contador de horas de estudio!\nVamos a contar cuantas horas estudiaste en total durante la semana 📝",
 );
 
 for (let i = 1; i <= 7; i++) {
@@ -121,10 +124,13 @@ for (let i = 1; i <= 7; i++) {
     i--; /*Este -- es para que se vuelva a repetir el día*/
   } else {
     totalHoras = totalHoras + horasIngresadas;
+    alert(
+      `En el día ${i}, estudiaste ${horasIngresadas} horas\nEl total acumulado de horas es de ${totalHoras} horas`,
+    );
+    console.log(
+      `En el día ${i}, estudiaste ${horasIngresadas} horas\nEl total acumulado de horas es de ${totalHoras} horas`,
+    );
   }
-  alert(
-    `En el día ${i}, estudiaste ${horasIngresadas} horas\nEl total acumulado de horas es de ${totalHoras} horas`,
-  );
 }
 
 let promedioHoras = totalHoras / 7;
@@ -133,8 +139,14 @@ if (promedioHoras > 2) {
   alert(
     `🎉🎉🎉Felicidades!!! Tu total de horas de estudio acumuladas es de ${totalHoras} horas😁\nEso te da un promedio de ${promedioHoras.toFixed(2)} horas por día!!\nSeguí así y pronto alcazaras tu meta!!🤩`,
   );
+  console.log(
+    `🎉🎉🎉Felicidades!!! Tu total de horas de estudio acumuladas es de ${totalHoras} horas😁\nEso te da un promedio de ${promedioHoras.toFixed(2)} horas por día!!\nSeguí así y pronto alcazaras tu meta!!🤩`,
+  );
 } else {
   alert(
+    `Tu total de horas de estudio acumuladas es de ${totalHoras.toFixed(2)}\nEso te da un promedio de ${promedioHoras} horas por día!😣\nDeberías dedicarte un poco más asi podes avanzar!🙃`,
+  );
+  console.log(
     `Tu total de horas de estudio acumuladas es de ${totalHoras.toFixed(2)}\nEso te da un promedio de ${promedioHoras} horas por día!😣\nDeberías dedicarte un poco más asi podes avanzar!🙃`,
   );
 }
@@ -143,6 +155,46 @@ if (promedioHoras > 2) {
 Contexto: Muchas tiendas online aplican descuentos que dependen de la cantidad de productos en el carrito.
 Consigna: El usuario comienza con un producto. El programa debe preguntar el precio de cada producto y sumarlo. El ciclo while continuará pidiendo productos mientras el usuario escriba "si" para agregar otro. Si el total supera los $5000, el sistema debe imprimir: "¡Has obtenido un 10% de descuento!".
 Desafío lógico: Debes llevar un control del total acumulado en cada iteración y aplicar el descuento solo una vez al final, antes de imprimir el resultado. */
+
 console.log(
   "EJERCICIO Nº 5 (TAREA 4)- SIMULADOR DE CARRITO DE DESCUENTOS PROGRESIVOS",
 );
+
+//ALGORITMO
+/*
+DATOS DE ENTRADA: total=0, respuesta del usuario, total acumulado
+PROCESO: pregunta el precio, suma al precio total, pregunta si quiere continuar, verificar el total si es mayor que 5000 y hacer el descuento.
+SALIDA: Mensaje avisando si se aplica el descuento y mostrar los totales.
+*/
+let totalCarrito = 0;
+let continuar = "si";
+
+while (continuar.toUpperCase().trim() === "SI") {
+  let precio = Number(
+    prompt("💲 Por favor, indica el precio del producto que seleccionaste"),
+  );
+
+  if (isNaN(precio) || precio <= 0) {
+    alert("❌ Por favor, ingresa un precio válido!");
+    continue;
+  }
+  totalCarrito += precio;
+  alert(`🛒 El total de tu carrito hasta ahora es de $${totalCarrito}`);
+  console.log(`Total del carrito: $${totalCarrito}`);
+
+  continuar =
+    prompt("🤔 Desea agregar otro producto?\nEscribe 'si' para continuar") ||
+    "";
+}
+
+if (totalCarrito > 5000) {
+  alert(`🎉 Felicidades, obtuviste un 10% de descuento 🤑`);
+  console.log(`Total sin descuento: $${totalCarrito}`);
+  let descuento = totalCarrito * 0.1;
+  totalCarrito -= descuento;
+  alert(`Tu nuevo total es de $${totalCarrito}`);
+  console.log(`Total con descuento: $${totalCarrito}`);
+}
+alert(`Muchas gracias por elegirnos\nEspramos que disfrutes tu compra 😁`);
+
+// Si prompt devuelve null, la parte "|| ''" le asigna un texto vacío
