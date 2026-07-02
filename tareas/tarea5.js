@@ -132,26 +132,87 @@ Crea una función llamada `convertirAMinutos` que reciba un número de horas y r
 - **Reto:** Invoca la función con diferentes valores y muestra el resultado en consola.
 - **Pista:** `minutos = horas * 60`. */
 console.log("8. La Calculadora de Conversión (function)");
-/* ALGORITMO
-ENTRADA: 
-PROCESO:
-SALIDA:  */
+
+/* console.log("FUNCION DECLARATIVA");
+function convertirAMinutos(horas) {
+  let minutos = horas * 60;
+  console.log(`${horas} horas equivalen a ${minutos} minutos`);
+} */
+
+/* const convertirAMinutos = (horas) => {
+  let minutos = horas * 60;
+  console.log(`${horas} horas equivalen a ${minutos} minutos`);
+}; */ //Aqui la converti en flecha y después intenté hacerla más corta
+
+const convertirAMinutos = (horas) => {
+  console.log(`${horas} horas equivalen a ${horas * 60} minutos`);
+};
+
+convertirAMinutos(2);
+convertirAMinutos(9);
+convertirAMinutos(15);
 console.log("-----------------------");
 
 /* 9. El Comparador de Edad (function)
 Crea una función llamada `puedeVotar` que reciba una edad (número) y retorne `true` si la persona tiene 18 años o más, y `false` en caso contrario. */
 console.log("9. El Comparador de Edad (function)");
-/* ALGORITMO
-ENTRADA: 
-PROCESO:
-SALIDA:  */
+
+/* console.log("FUNCION DECLARATIVA");
+
+function puedeVotar(edad) {
+  if (edad >= 18) {
+    console.log("✅Estás habilitado para votar!!!");
+    alert("✅Estás habilitado para votar!!!");
+    return true;
+  } else {
+    console.log("❌ Todavía no podes votar");
+    alert("❌ Todavía no podes votar");
+    return false;
+  }
+} */
+
+const puedeVotar = (edad) => {
+  if (edad >= 18) {
+    console.log("✅Estás habilitado para votar!!!");
+    alert("✅Estás habilitado para votar!!!"); //Por ahora repito el console.log y alert para ir viendo los mjs que devuelve, entiendo q esto no se debería hacer siempre.
+    return true;
+  } else {
+    console.log("❌ Todavía no podes votar");
+    alert("❌ Todavía no podes votar");
+    return false;
+  }
+};
+
+puedeVotar(16);
+puedeVotar(25);
+//No sé como hacerla más corta a esta flecha.
+
 console.log("-----------------------");
 //10. El Calculador de Descuentos (function)
 
 /* Crea una función llamada `calcularPrecioFinal` que reciba dos parámetros: `precioOriginal` y `porcentajeDescuento`. La función debe retornar el precio final después de aplicar el descuento.
  */
 console.log("10. El Calculador de Descuentos (function)");
-/* ALGORITMO
-ENTRADA: 
-PROCESO:
-SALIDA:  */
+
+/* console.log("FUNCION DECLARATIVA");
+function calcularPrecioFinal(precioOriginal, porcentajeDescuento) {
+  let descuento = (precioOriginal * porcentajeDescuento) / 100;
+  let precioAAbonar = precioOriginal - descuento;
+  return Number(precioAAbonar.toFixed(2));
+} */
+
+/* const calcularPrecioFinal = (precioOriginal, porcentajeDescuento) => {
+  let descuento = (precioOriginal * porcentajeDescuento) / 100;
+  let precioAAbonar = precioOriginal - descuento;
+  return Number(precioAAbonar.toFixed(2));
+}; */
+
+const calcularPrecioFinal = (precioOriginal, porcentajeDescuento) => {
+  let precioAAbonar =
+    precioOriginal - (precioOriginal * porcentajeDescuento) / 100;
+  return Number(precioAAbonar.toFixed(2));
+};
+
+console.log(`Tu precio final es de $${calcularPrecioFinal(6541, 20)}`);
+console.log(`Tu precio final es de $${calcularPrecioFinal(684, 5)}`);
+console.log(`Tu precio final es de $${calcularPrecioFinal(7533, 8)}`);
