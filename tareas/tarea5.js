@@ -27,23 +27,40 @@ console.log("3. El Buscador de Códigos (find)");
 
 const stock = ["A10", "B20", "C30", "D40"];
 
-function buscarProducto(listaStock, codigoEspecifico) {
+/* function buscarProducto(listaStock, codigoEspecifico) {
   const existe = listaStock.find((produc) => produc === codigoEspecifico);
   if (existe === undefined) {
     return "No Encontrado";
   } else {
     return existe;
   }
-}
+} */
+//Si se me complica un poco, primero hago la funcion larga y despues la convierto en flecha, asi me guio mejor por ahora.
+
+const buscarProducto = (listaStock, codigoEspecifico) => {
+  const existe = listaStock.find((produc) => produc === codigoEspecifico);
+  if (existe === undefined) {
+    return "No Encontrado";
+  } else {
+    return existe;
+  }
+};
 
 console.log(buscarProducto(stock, "C30"));
-console.log(buscarProducto(stock, "Z99"));
+console.log(buscarProducto(stock, "H07"));
 
 console.log("-----------------------");
 /* Ejercicio 4: El Acumulador Maestro (reduce)
 Tienes un array de números que representan las ventas del día. Crea una función llamada calcularTotalVentas que use .reduce() para sumar todas las ventas y devolver el total.
 Array inicial: [100, 250, 50, 300, 120] */
 console.log("4. El Acumulador Maestro (reduce)");
+
+const ventas = [100, 250, 50, 300, 120];
+
+const calcularTotalVentas = ventas.reduce((accum, monto) => accum + monto, 0);
+
+console.log(`El monto total de las ventas de hoy es de ${calcularTotalVentas}`);
+
 console.log("-----------------------");
 /* Ejercicio 5: Gestión de Objetos (El "Inventario Simple")
 Crea un array llamado inventario que contenga 3 objetos. Cada objeto debe representar un producto con las propiedades: nombre (string) y precio (number).
