@@ -13,17 +13,32 @@ console.log("-----------------------");
 /* Ejercicio 2: El Filtro de Seguridad (filter)
 Tienes un array de números que representan edades de personas. Crea una función llamada obtenerMayoresDeEdad que use .filter() para devolver un array solo con las edades que sean 18 o más.
 Array inicial: [12, 18, 25, 10, 30, 15] */
-console.log("1. El Transformador de Datos (map)");
+console.log("2. El Filtro de Seguridad (filter)");
 
-const edades = [12, 18, 25, 10, 30, 15];
-const obtenerMayoresDeEdad = edades.filter((edad) => edad >= 18);
+const edad = [12, 18, 25, 10, 30, 15];
+const obtenerMayoresDeEdad = edad.filter((edad) => edad >= 18);
 console.log(obtenerMayoresDeEdad);
 
 console.log("-----------------------");
 /* Ejercicio 3: El Buscador de Códigos (find)
 Tienes un array de strings que representan códigos de productos. Crea una función llamada buscarProducto que reciba el array y un código específico. La función debe usar .find() para retornar el código si existe, o "No encontrado" si no está.
 Array inicial: ["A10", "B20", "C30", "D40"] */
-console.log("2. El Filtro de Seguridad (filter)");
+console.log("3. El Buscador de Códigos (find)");
+
+const stock = ["A10", "B20", "C30", "D40"];
+
+function buscarProducto(listaStock, codigoEspecifico) {
+  const existe = listaStock.find((produc) => produc === codigoEspecifico);
+  if (existe === undefined) {
+    return "No Encontrado";
+  } else {
+    return existe;
+  }
+}
+
+console.log(buscarProducto(stock, "C30"));
+console.log(buscarProducto(stock, "Z99"));
+
 console.log("-----------------------");
 /* Ejercicio 4: El Acumulador Maestro (reduce)
 Tienes un array de números que representan las ventas del día. Crea una función llamada calcularTotalVentas que use .reduce() para sumar todas las ventas y devolver el total.
