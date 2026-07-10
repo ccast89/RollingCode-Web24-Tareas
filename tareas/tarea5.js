@@ -14,6 +14,11 @@ console.log("-----------------------");
 Tienes un array de números que representan edades de personas. Crea una función llamada obtenerMayoresDeEdad que use .filter() para devolver un array solo con las edades que sean 18 o más.
 Array inicial: [12, 18, 25, 10, 30, 15] */
 console.log("1. El Transformador de Datos (map)");
+
+const edades = [12, 18, 25, 10, 30, 15];
+const obtenerMayoresDeEdad = edades.filter((edad) => edad >= 18);
+console.log(obtenerMayoresDeEdad);
+
 console.log("-----------------------");
 /* Ejercicio 3: El Buscador de Códigos (find)
 Tienes un array de strings que representan códigos de productos. Crea una función llamada buscarProducto que reciba el array y un código específico. La función debe usar .find() para retornar el código si existe, o "No encontrado" si no está.
