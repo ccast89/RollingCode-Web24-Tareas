@@ -67,6 +67,19 @@ Crea un array llamado inventario que contenga 3 objetos. Cada objeto debe repres
 Crea una función llamada listarPrecios que recorra el array y retorne un nuevo array solo con los precios usando .map().
 Tip: Accede a la propiedad mediante producto.precio. */
 console.log("5 Gestión de Objetos (El 'Inventario Simple')");
+
+const inventario = [
+  { nombre: "Auriculares HyperX", precio: 91300 },
+  { nombre: "Teclado Mecánico", precio: 189990 },
+  { nombre: "Micrófono HyperX", precio: 217990 },
+];
+
+function listarPrecios(listaProductos) {
+  return listaProductos.map((producto) => producto.precio);
+}
+const precios = listarPrecios(inventario);
+console.log(precios);
+
 console.log("-----------------------");
 /* Ejercicio 6: El Desafío Combinado (Integración)
 Tienes un array de objetos llamado estudiantes donde cada uno tiene nombre y nota.
@@ -83,3 +96,16 @@ Consejos para alumnos:
 Ejercicio 5 y 6:  Cuando trabajan con objetos, el callback de los métodos (como estudiante => estudiante.nota) es la llave maestra para acceder a la información.
 El orden importa: En el ejercicio 6  .filter() primero "limpia" la lista y luego .map() "transforma" lo que quedó. */
 console.log("6. El Desafío Combinado (Integración)");
+
+const estudiantes = [
+  { nombre: "Ana", nota: 8 },
+  { nombre: "Beto", nota: 4 },
+  { nombre: "Carla", nota: 10 },
+  { nombre: "David", nota: 5 },
+];
+
+const aprobados = estudiantes.filter((estudiante) => estudiante.nota >= 6);
+
+const nombresAprobados = aprobados.map((estudiante) => estudiante.nombre);
+
+console.log(nombresAprobados);
