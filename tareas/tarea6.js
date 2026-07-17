@@ -18,7 +18,7 @@ console.log("-----------------------");
 Enunciado: Después de agregar la tarea, el input debe quedar vacío y el cursor debe volver a parpadear en él.
 
 Tip: Asigna un string vacío "" al value del input y usa el método .focus() sobre el mismo elemento */
-console.log("3.  Limpieza de Interfa");
+console.log("3.  Limpieza de Interfaz");
 console.log("-----------------------");
 
 /* Tarea 4: El Botón de Borrar (Delegación de eventos o lógica simple)
@@ -32,7 +32,7 @@ console.log("-----------------------");
 Enunciado: Evita que el usuario agregue tareas vacías.
 
 Tip: Usa un if para comprobar si inputTarea.value.trim() !== "" antes de ejecutar la lógica de creación. Si está vacío, podrías usar alert() para avisar al usuario. */
-console.log("5.  Validación de dato");
+console.log("5.  Validación de datos");
 console.log("-----------------------");
 
 /* Tarea 6: Estilos Dinámicos (Modo "Prioridad")
@@ -41,4 +41,3 @@ Enunciado: Agrega un segundo botón llamado "Prioridad". Al hacer clic en una ta
 Tip: Puedes alternar clases usando classList.toggle('bg-warning') dentro de un evento click sobre cada li generado.
 
  */
-console.log("6. stilos Dinámicos (Modo 'Prioridad')");

@@ -4,20 +4,27 @@ Fórmula: (celsius * 9/5) + 32
 Array inicial: [0, 10, 20, 30, 40] */
 console.log("1. El Transformador de Datos (map)");
 
-const celcius = [0, 10, 20, 30, 40];
+const celsius = [0, 10, 20, 30, 40];
 
-const convertirAFahrenheit = celcius.map((temp) => (temp * 9) / 5 + 32);
+const convertirAFahrenheit = (listaDeTemperaturas) =>
+  listaDeTemperaturas.map((temperaturas) => (temperaturas * 9) / 5 + 32);
 
-console.log(convertirAFahrenheit);
+return convertirAFahrenheit;
+
 console.log("-----------------------");
+
 /* Ejercicio 2: El Filtro de Seguridad (filter)
 Tienes un array de números que representan edades de personas. Crea una función llamada obtenerMayoresDeEdad que use .filter() para devolver un array solo con las edades que sean 18 o más.
 Array inicial: [12, 18, 25, 10, 30, 15] */
+
 console.log("2. El Filtro de Seguridad (filter)");
 
 const edad = [12, 18, 25, 10, 30, 15];
-const obtenerMayoresDeEdad = edad.filter((edad) => edad >= 18);
-console.log(obtenerMayoresDeEdad);
+
+const obtenerMayoresDeEdad = (listaDeEdades) =>
+  listaDeEdades.filter((edad) => edad >= 18);
+
+console.log(obtenerMayoresDeEdad(edades));
 
 console.log("-----------------------");
 /* Ejercicio 3: El Buscador de Códigos (find)
@@ -27,23 +34,14 @@ console.log("3. El Buscador de Códigos (find)");
 
 const stock = ["A10", "B20", "C30", "D40"];
 
-/* function buscarProducto(listaStock, codigoEspecifico) {
-  const existe = listaStock.find((produc) => produc === codigoEspecifico);
-  if (existe === undefined) {
-    return "No Encontrado";
-  } else {
-    return existe;
+const buscarProducto = (listaDeCodigos, codigoEspecifico) => {
+  let codigoEncontrado = listaDeCodigos.find(
+    (codigo) => codigo === codigoEspecifico,
+  );
+  if (codigoEncontrado === undefined) {
+    return "No encontrado";
   }
-} */
-//Si se me complica un poco, primero hago la funcion larga y despues la convierto en flecha, asi me guio mejor por ahora.
-
-const buscarProducto = (listaStock, codigoEspecifico) => {
-  const existe = listaStock.find((produc) => produc === codigoEspecifico);
-  if (existe === undefined) {
-    return "No Encontrado";
-  } else {
-    return existe;
-  }
+  return codigoEncontrado;
 };
 
 console.log(buscarProducto(stock, "C30"));
@@ -57,9 +55,10 @@ console.log("4. El Acumulador Maestro (reduce)");
 
 const ventas = [100, 250, 50, 300, 120];
 
-const calcularTotalVentas = ventas.reduce((accum, monto) => accum + monto, 0);
+const calcularTotalVentas = (listaDeVentas) =>
+  listaDeVentas.reduce((accum, monto) => accum + monto, 0);
 
-console.log(`El monto total de las ventas de hoy es de ${calcularTotalVentas}`);
+console.log(calcularTotalVentas(ventas));
 
 console.log("-----------------------");
 /* Ejercicio 5: Gestión de Objetos (El "Inventario Simple")
@@ -74,11 +73,8 @@ const inventario = [
   { nombre: "Micrófono HyperX", precio: 217990 },
 ];
 
-function listarPrecios(listaProductos) {
-  return listaProductos.map((producto) => producto.precio);
-}
-const precios = listarPrecios(inventario);
-console.log(precios);
+const listarPrecios = (listaProductos) =>
+  listaProductos.map((producto) => producto.precio);
 
 console.log("-----------------------");
 /* Ejercicio 6: El Desafío Combinado (Integración)
@@ -104,8 +100,7 @@ const estudiantes = [
   { nombre: "David", nota: 5 },
 ];
 
-const aprobados = estudiantes.filter((estudiante) => estudiante.nota >= 6);
-
-const nombresAprobados = aprobados.map((estudiante) => estudiante.nombre);
-
-console.log(nombresAprobados);
+const estudiantesAprobados = (listaDeEstudiantes) =>
+  listaDeEstudiantes
+    .filter((estudiante) => estudiante.nota >= 6)
+    .map((estudiante) => estudiante.nombre);
