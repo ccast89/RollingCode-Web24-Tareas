@@ -4,6 +4,16 @@ Agrega un addEventListener de tipo 'click' al botón.
 
 Tip: Cuando el usuario haga clic, haz un console.log del inputTarea.value  para verificar que estás capturando lo que el usuario escribe.*/
 console.log("1. Captura y Eventos");
+
+const btnAgregar = document.querySelector("#btnAgregar");
+const inputTarea = document.querySelector("#inputTarea");
+
+function nuevaTarea() {
+  console.log(inputTarea.value);
+}
+
+btnAgregar.addEventListener("click", nuevaTarea);
+
 console.log("-----------------------");
 
 /* Tarea 2: Creación Dinámica con Template String
