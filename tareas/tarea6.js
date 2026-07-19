@@ -22,6 +22,22 @@ Usa innerHTML y un template string para insertar el texto del input dentro de un
 
 Tip: No olvides usar .append() para insertar el nuevo li dentro del ul #listaTareas. */
 console.log("2.  Creación Dinámica con Template String");
+
+const btnAgregar = document.querySelector("#btnAgregar");
+const inputTarea = document.querySelector("#inputTarea");
+const listaTareas = document.querySelector("#listaTareas"); // Se agrega esta variable para poder agregarle la li despues
+
+const agregarTarea = () => {
+  console.log(inputTarea.value);
+
+  const nuevaTarea = document.createElement("li");
+  nuevaTarea.innerHTML = `${inputTarea.value} <button class="btn btn-danger btn-sm">X</button></li>`;
+  nuevaTarea.classList = "list-group-item d-flex justify-content-between";
+
+  listaTareas.append(nuevaTarea);
+};
+
+btnAgregar.addEventListener("click", agregarTarea);
 console.log("-----------------------");
 
 /* Tarea 3: Limpieza de Interfaz
@@ -29,7 +45,10 @@ Enunciado: Después de agregar la tarea, el input debe quedar vacío y el cursor
 
 Tip: Asigna un string vacío "" al value del input y usa el método .focus() sobre el mismo elemento */
 console.log("3.  Limpieza de Interfaz");
-console.log("-----------------------");
+
+inputTarea.value = "";
+inputTarea.focus();
+// TAREA 3 Solo se agregan estas dos lineas antes que termine la funcion. Para que despues que se agregue la tarea a la lista, el input vuelva a quedar vacio y el focus es para que el input quede parpadeando
 
 /* Tarea 4: El Botón de Borrar (Delegación de eventos o lógica simple)
 Enunciado: Haz que el botón de "X" que creaste dinámicamente realmente elimine la tarea de la lista.
