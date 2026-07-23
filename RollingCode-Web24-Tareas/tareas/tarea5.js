@@ -1,0 +1,106 @@
+/* Ejercicio 1: El Transformador de Datos (map)
+Tienes una lista de temperaturas en grados Celsius. Crea una función llamada convertirAFahrenheit que reciba este array y devuelva un nuevo array con las temperaturas convertidas a Fahrenheit.
+Fórmula: (celsius * 9/5) + 32
+Array inicial: [0, 10, 20, 30, 40] */
+console.log("1. El Transformador de Datos (map)");
+
+const celsius = [0, 10, 20, 30, 40];
+
+const convertirAFahrenheit = (listaDeTemperaturas) =>
+  listaDeTemperaturas.map((temperaturas) => (temperaturas * 9) / 5 + 32);
+
+return convertirAFahrenheit;
+
+console.log("-----------------------");
+
+/* Ejercicio 2: El Filtro de Seguridad (filter)
+Tienes un array de números que representan edades de personas. Crea una función llamada obtenerMayoresDeEdad que use .filter() para devolver un array solo con las edades que sean 18 o más.
+Array inicial: [12, 18, 25, 10, 30, 15] */
+
+console.log("2. El Filtro de Seguridad (filter)");
+
+const edad = [12, 18, 25, 10, 30, 15];
+
+const obtenerMayoresDeEdad = (listaDeEdades) =>
+  listaDeEdades.filter((edad) => edad >= 18);
+
+console.log(obtenerMayoresDeEdad(edades));
+
+console.log("-----------------------");
+/* Ejercicio 3: El Buscador de Códigos (find)
+Tienes un array de strings que representan códigos de productos. Crea una función llamada buscarProducto que reciba el array y un código específico. La función debe usar .find() para retornar el código si existe, o "No encontrado" si no está.
+Array inicial: ["A10", "B20", "C30", "D40"] */
+console.log("3. El Buscador de Códigos (find)");
+
+const stock = ["A10", "B20", "C30", "D40"];
+
+const buscarProducto = (listaDeCodigos, codigoEspecifico) => {
+  let codigoEncontrado = listaDeCodigos.find(
+    (codigo) => codigo === codigoEspecifico,
+  );
+  if (codigoEncontrado === undefined) {
+    return "No encontrado";
+  }
+  return codigoEncontrado;
+};
+
+console.log(buscarProducto(stock, "C30"));
+console.log(buscarProducto(stock, "H07"));
+
+console.log("-----------------------");
+/* Ejercicio 4: El Acumulador Maestro (reduce)
+Tienes un array de números que representan las ventas del día. Crea una función llamada calcularTotalVentas que use .reduce() para sumar todas las ventas y devolver el total.
+Array inicial: [100, 250, 50, 300, 120] */
+console.log("4. El Acumulador Maestro (reduce)");
+
+const ventas = [100, 250, 50, 300, 120];
+
+const calcularTotalVentas = (listaDeVentas) =>
+  listaDeVentas.reduce((accum, monto) => accum + monto, 0);
+
+console.log(calcularTotalVentas(ventas));
+
+console.log("-----------------------");
+/* Ejercicio 5: Gestión de Objetos (El "Inventario Simple")
+Crea un array llamado inventario que contenga 3 objetos. Cada objeto debe representar un producto con las propiedades: nombre (string) y precio (number).
+Crea una función llamada listarPrecios que recorra el array y retorne un nuevo array solo con los precios usando .map().
+Tip: Accede a la propiedad mediante producto.precio. */
+console.log("5 Gestión de Objetos (El 'Inventario Simple')");
+
+const inventario = [
+  { nombre: "Auriculares HyperX", precio: 91300 },
+  { nombre: "Teclado Mecánico", precio: 189990 },
+  { nombre: "Micrófono HyperX", precio: 217990 },
+];
+
+const listarPrecios = (listaProductos) =>
+  listaProductos.map((producto) => producto.precio);
+
+console.log("-----------------------");
+/* Ejercicio 6: El Desafío Combinado (Integración)
+Tienes un array de objetos llamado estudiantes donde cada uno tiene nombre y nota.
+Usa .filter() para obtener solo los estudiantes que aprobaron (nota >= 6).
+A esos estudiantes aprobados, usa .map() para obtener solo sus nombres en un nuevo array.
+Imprime el resultado final.
+const estudiantes = [
+  { nombre: "Ana", nota: 8 },
+  { nombre: "Beto", nota: 4 },
+  { nombre: "Carla", nota: 10 },
+  { nombre: "David", nota: 5 }
+];
+Consejos para alumnos:
+Ejercicio 5 y 6:  Cuando trabajan con objetos, el callback de los métodos (como estudiante => estudiante.nota) es la llave maestra para acceder a la información.
+El orden importa: En el ejercicio 6  .filter() primero "limpia" la lista y luego .map() "transforma" lo que quedó. */
+console.log("6. El Desafío Combinado (Integración)");
+
+const estudiantes = [
+  { nombre: "Ana", nota: 8 },
+  { nombre: "Beto", nota: 4 },
+  { nombre: "Carla", nota: 10 },
+  { nombre: "David", nota: 5 },
+];
+
+const estudiantesAprobados = (listaDeEstudiantes) =>
+  listaDeEstudiantes
+    .filter((estudiante) => estudiante.nota >= 6)
+    .map((estudiante) => estudiante.nombre);
