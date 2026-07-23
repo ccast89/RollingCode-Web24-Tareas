@@ -19,7 +19,6 @@ const segundero = () => {
 };
 
 document.querySelector("#btnIniciar").addEventListener("click", segundero);
-
 //-------------------
 
 /* Ejercicio 2: "El Semáforo Inteligente" (setTimeout encadenado)
@@ -51,6 +50,7 @@ const tiempoSemaforo = () => {
 document
   .querySelector("#btnSemaforo")
   .addEventListener("click", tiempoSemaforo);
+
 //----------------
 
 /* Ejercicio 3: "El Mensaje Flash" (setTimeout y clases de Bootstrap)
@@ -71,6 +71,7 @@ const mostrarAlerta = () => {
 };
 
 guardar.addEventListener("click", mostrarAlerta);
+//---------------
 //---------------
 
 /* Ejercicio 4: "Buscador de Usuario" (async/await y fetch)
