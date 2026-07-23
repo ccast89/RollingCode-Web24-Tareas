@@ -7,6 +7,7 @@ Tip: Cuando el usuario haga clic, haz un console.log del inputTarea.value  para 
 
 const btnAgregar = document.querySelector("#btnAgregar");
 const inputTarea = document.querySelector("#inputTarea");
+const listaTareas = document.querySelector("#listaTareas"); // Se agrega esta variable para poder agregarle la li despues
 
 function nuevaTarea() {
   console.log(inputTarea.value);
@@ -21,15 +22,11 @@ Usa innerHTML y un template string para insertar el texto del input dentro de un
 
 Tip: No olvides usar .append() para insertar el nuevo li dentro del ul #listaTareas. */
 
-const btnAgregar = document.querySelector("#btnAgregar");
-const inputTarea = document.querySelector("#inputTarea");
-const listaTareas = document.querySelector("#listaTareas"); // Se agrega esta variable para poder agregarle la li despues
-
 const agregarTarea = () => {
   console.log(inputTarea.value);
 
   const nuevaTarea = document.createElement("li");
-  nuevaTarea.innerHTML = `${inputTarea.value} <button class="btn btn-danger btn-sm">X</button></li>`;
+  nuevaTarea.innerHTML = `${inputTarea.value} <button class="btn btn-danger btn-sm">X</button></`;
   nuevaTarea.classList = "list-group-item d-flex justify-content-between";
 
   listaTareas.append(nuevaTarea);
