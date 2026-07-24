@@ -80,6 +80,30 @@ Tips para resolverlo:
 No olvides que la función asociada al evento del botón debe declararse como async.
 Recuerda el doble paso del fetch: primero obtener la respuesta y luego transformarla a JSON con await respuesta.json().
 Usa template strings (```) para inyectar las propiedades del objeto recibido dentro del innerHTML de la tarjeta */
+
+const botonCargar = document.querySelector("#btnCargar");
+const tarjeta = document.querySelector("#tarjeta");
+
+const cargarUsuario = async () => {
+  try {
+    const respuesta = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+    );
+    const usuario = await respuesta.json();
+
+    tarjeta.innerHTML = `
+      <p class="card-text">Nombre: ${usuario.name}</p>
+      <p class="card-text">Email: ${usuario.email}</p>
+    `;
+  } catch (error) {
+    tarjeta.innerHTML = `<p>No se encontró un usuario</p>`;
+  }
+};
+
+botonCargar.addEventListener("click", cargarUsuario);
+
+//Este me costó un montón, lo del try y catch lo saque de los rolling tips
+
 //---------------
 
 /*  Ejercicio 5: "Galería de Personajes con Indicador de Carga" (Asincronismo completo)
