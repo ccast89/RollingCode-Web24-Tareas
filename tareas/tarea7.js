@@ -81,6 +81,27 @@ Tips para resolverlo:
 No olvides que la función asociada al evento del botón debe declararse como async.
 Recuerda el doble paso del fetch: primero obtener la respuesta y luego transformarla a JSON con await respuesta.json().
 Usa template strings (```) para inyectar las propiedades del objeto recibido dentro del innerHTML de la tarjeta */
+const botonCargar = document.querySelector("#btnCargar");
+const tarjeta = document.querySelector("#tarjeta");
+
+const cargarUsuario = async () => {
+  try {
+    const respuesta = await fetch(
+      "https://jsonplaceholder.typicode.com/users/1",
+    );
+    const usuario = await respuesta.json();
+
+    tarjeta.innerHTML = `
+      <p class="card-text">Nombre: ${usuario.name}</p>
+      <p class="card-text">Email: ${usuario.email}</p>
+    `;
+  } catch (error) {
+    tarjeta.innerHTML = `<p>No se encontró un usuario</p>`;
+  }
+};
+
+botonCargar.addEventListener("click", cargarUsuario);
+
 //---------------
 
 /*  Ejercicio 5: "Galería de Personajes con Indicador de Carga" (Asincronismo completo)
@@ -90,3 +111,36 @@ Consigna: Crea una aplicación que al presionar un botón "Buscar Personaje" mue
 Tips para resolverlo:
 Antes de hacer el await fetch(...), actualiza el contenedor #resultado con un texto o un Spinner de Bootstrap para simular la espera.
 Cuando obtengas los datos de la API, reemplaza el contenido del contenedor utilizando las propiedades data.name y data.image del objeto que te devuelve la API. */
+
+const botonPersonaje = document.querySelector("#btnPersonaje");
+const resultado = document.querySelector("#resultado");
+
+const buscarPersonaje = async () => {
+  resultado.innerHTML = ""; // Esto agregue al úlitmo xq si volvia a hacer click, se pegaban varias veces las imágenes
+
+  const cargando = document.createElement("p");
+  cargando.textContent = "Cargando...";
+  resultado.append(cargando);
+  console.log(cargando); // Puse este console.log para asegurarme de que se cambiaba xq no lo llegaba a ver en la página cuando actualizaba.
+  try {
+    const respuesta = await fetch(
+      "https://rickandmortyapi.com/api/character/5",
+    );
+    const personaje = await respuesta.json();
+
+    cargando.remove(); // Este remove lo hice xq sino seguia apareciendo el "cargando" aún cuando ya estaba la imagen
+
+    const personajeNombre = document.createElement("h2");
+    personajeNombre.textContent = personaje.name;
+    resultado.append(personajeNombre);
+
+    const imagen = document.createElement("img");
+    imagen.src = personaje.image;
+    imagen.style.width = "200px";
+    resultado.append(imagen);
+  } catch (error) {
+    resultado.innerHTML = "<p>No se encontró ningún personaje.</p>";
+  }
+};
+
+botonPersonaje.addEventListener("click", buscarPersonaje);
