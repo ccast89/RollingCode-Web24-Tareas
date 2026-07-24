@@ -113,3 +113,36 @@ Consigna: Crea una aplicación que al presionar un botón "Buscar Personaje" mue
 Tips para resolverlo:
 Antes de hacer el await fetch(...), actualiza el contenedor #resultado con un texto o un Spinner de Bootstrap para simular la espera.
 Cuando obtengas los datos de la API, reemplaza el contenido del contenedor utilizando las propiedades data.name y data.image del objeto que te devuelve la API. */
+
+const botonPersonaje = document.querySelector("#btnPersonaje");
+const resultado = document.querySelector("#resultado");
+
+const buscarPersonaje = async () => {
+  resultado.innerHTML = ""; // Esto agregue al úlitmo xq si volvia a hacer click, se pegaban varias veces las imágenes
+
+  const cargando = document.createElement("p");
+  cargando.textContent = "Cargando...";
+  resultado.append(cargando);
+  console.log(cargando); // Puse este console.log para asegurarme de que se cambiaba xq no lo llegaba a ver en la página cuando actualizaba.
+  try {
+    const respuesta = await fetch(
+      "https://rickandmortyapi.com/api/character/5",
+    );
+    const personaje = await respuesta.json();
+
+    cargando.remove(); // Este remove lo hice xq sino seguia apareciendo el "cargando" aún cuando ya estaba la imagen
+
+    const personajeNombre = document.createElement("h2");
+    personajeNombre.textContent = personaje.name;
+    resultado.append(personajeNombre);
+
+    const imagen = document.createElement("img");
+    imagen.src = personaje.image;
+    imagen.style.width = "200px";
+    resultado.append(imagen);
+  } catch (error) {
+    resultado.innerHTML = "<p>No se encontró ningún personaje.</p>";
+  }
+};
+
+botonPersonaje.addEventListener("click", buscarPersonaje);
